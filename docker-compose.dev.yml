@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+    web:
+        container_name: helloworld-web
+        ports: ["${PORT}:80"]
+        build:
+            dockerfile: ./docker/web/Dockerfile
+            context: .
+        environment:
+            ENVIRONMENT: "dev"
+            MESSAGE: "${MESSAGE}"
