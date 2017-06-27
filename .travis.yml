@@ -1,0 +1,15 @@
+sudo: required
+
+language: php
+
+services:
+    - docker
+
+before_install:
+    - make test:build
+    - make test:up:daemon
+    - docker ps -a
+    # - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+
+script:
+    - make test
